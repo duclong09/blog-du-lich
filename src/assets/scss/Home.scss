@@ -1,0 +1,108 @@
+.snow {
+  height: 65px;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  color: $text-color;
+  span {
+      font-size: 24px;
+      font-weight: 400;
+      display: flex;
+      margin-left: 50px;
+    }
+
+  ul {
+    height: 100%;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    padding-inline-start: 0;
+    display: flex;
+   
+    list-style-type: none;
+    margin-right: 20px;
+  }
+  a{
+    text-decoration: none;
+    padding: 0 20px 0 20px;
+    font-size: 20px;
+    color: $text-color;
+    &:hover{
+      color: $text-link;
+    }
+  }
+  
+}
+
+
+
+$snow: (
+  amountSnow: 50, // approximately 80 snow / 1 viewport
+  colorSnow: 'multiColor', // value = #fff,... rgba,... special( colorSnow: 'multiColor' )
+  duration: 10000, // set duration
+  size: 5, // approximately size
+  // backgroundImage: 'http://www.flyingstart.uk.com/wp-content/uploads/2014/12/Merry-Christmas-pictures-free.jpg' // background image
+);
+
+// get key
+$amountSnow: map-get($snow, 'amountSnow');
+$colorSnow: map-get($snow, 'colorSnow');
+$duration: map-get($snow, 'duration');
+$size: map-get($snow, 'size');
+$backgroundImage: map-get($snow, 'backgroundImage');
+// function snow
+@function snow($x, $y, $n, $color) {
+  $value: 0 0 0 transparent;
+  @for $i from 1 through round($n/2) {
+    $value: $value, random($x)*1vw ($y*1 + random(100))*1vh random(8)*1px random(5)*1px if($color == 'multiColor', rgb(random(255),random(255),random(255)), unquote($color)), random($x)*-1vw ($y*1 + random(100))*1vh random(8)*1px random(5)*1px if($color == 'multiColor', rgb(random(255),random(255),random(255)), unquote($color));
+  }
+  @return $value;
+}
+@mixin snow($size) {
+  @content;
+  width: $size * 1px;
+  height: $size * 1px;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+  will-change: box-shadow;
+  animation: snow $duration*1ms linear infinite;
+  &:nth-child(2) {
+    left: 25vw;
+    animation-delay: floor($duration/1.5)*1ms;
+  }
+  &:nth-child(3) {
+    right: 25vw;
+    animation-delay: floor($duration/3)*1ms;
+  }
+  @keyframes snow {
+    0% {
+      box-shadow: snow(100, -150, $amountSnow, $colorSnow);
+    }
+    100% {
+      box-shadow: snow(100, 50, $amountSnow, $colorSnow);
+    }
+  }
+}
+
+// Style
+body {
+  margin: 0;
+  background-image: url($backgroundImage);
+  background-color: #111;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+.snow {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+.snow__item {
+  @include snow($size) {
+    position: absolute;
+  }
+}
