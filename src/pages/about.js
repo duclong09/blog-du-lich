@@ -5,5 +5,6 @@ export default function about() {
         <div>
             About
         </div>
+        
     )
 }

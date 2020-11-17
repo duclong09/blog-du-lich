@@ -1,60 +1,219 @@
+*{
+  overflow: hidden;
+}
 .snow {
-  height: 65px;
-  width: 100%;
+ 
+  // height: 65px;
+  // width: 100%;
   background: white;
+  background-image: linear-gradient(120deg, #f665ef, #85c7fd, #99fd85);
   display: flex;
   justify-content: space-between;
   color: $text-color;
-  span {
-      font-size: 24px;
-      font-weight: 400;
-      display: flex;
-      margin-left: 50px;
-    }
 
-  ul {
-    height: 100%;
-    margin-block-start: 0;
-    margin-block-end: 0;
-    padding-inline-start: 0;
-    display: flex;
-   
-    list-style-type: none;
-    margin-right: 20px;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  // span {
+  //     font-size: 24px;
+  //     width: 10%;
+  //     height: 50px;
+
+  //     align-items: center;
+  //     display: flex;
+  //     justify-content: center;
+  //     // display: flex;
+  //     // margin-left: 20px;
+
+  //   }
+
+  // ul {
+  //   height: 50px;
+  //   margin-block-start: 0;
+  //   margin-block-end: 0;
+  //   padding-inline-start: 0;
+  //   display: flex;
+  //   margin: auto;
+
+  //   list-style-type: none;
+  //   //margin-right: 20px;
+  // }
+
+  // a {
+
+  //   text-decoration: none;
+  //   padding: 0 20px 0 20px;
+  //   font-size: 20px;
+  //   border: 10px solid;
+  //   border-radius: 10px;
+  //   margin-right: 20px;
+
+  //   color: $text-color;
+
+  //   display: flex;
+  //   &:hover {
+  //     color: $text-link;
+  //   }
+  // }
+  .jss150 {
+    top: 50%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    transform: translateY(-50%);
   }
+
   a{
     text-decoration: none;
-    padding: 0 20px 0 20px;
-    font-size: 20px;
-    color: $text-color;
-    &:hover{
-      color: $text-link;
-    }
+    background-image: linear-gradient(to top, rgba(0,0,0,0),rgba(0,0,0,0)1px, #00897b 1px, #00897b 4px, rgba(0,0,0,0) 4px);
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .MuiTypography-alignCenter {
+    text-align: center;
+  }
+
+  .MuiGrid-spacing-xs-4 {
+    width: calc(100% + 32px);
+    margin: -16px;
+  }
+  .MuiGrid-spacing-xs-4 > .MuiGrid-item {
+    padding: 16px;
+  }
+  .icon-item{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+
+  }
+  .MuiGrid-item {
+    margin: 0;
+    display: flex;
+    box-sizing: border-box;
+  }
+  .MuiGrid-justify-xs-center {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .MuiGrid-spacing-xs-4 > .MuiGrid-item {
+    padding: 16px;
+  }
+
+
+  .MuiButton-textSizeLarge {
+    padding: 8px 11px;
+    font-size: 1.0714285714285716rem;
+  }
+  .MuiButton-label {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiTouchRipple-root {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+    position: absolute;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  .MuiIconButton-root {
+    flex: 0 0 auto;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 12px;
+    overflow: visible;
+    font-size: 1.7142857142857144rem;
+    text-align: center;
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+  }
+  .MuiIconButton-label {
+    width: 100%;
+    display: flex;
+    align-items: inherit;
+    justify-content: inherit;
+  }
+  .MuiSvgIcon-root {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+    font-size: 1.7142857142857144rem;
+    transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    flex-shrink: 0;
+    user-select: none;
   }
   
+  .MuiTouchRipple-root {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+    position: absolute;
+    border-radius: inherit;
+    pointer-events: none;
+  }
 }
 
 
 
+//Variable:
 $snow: (
-  amountSnow: 50, // approximately 80 snow / 1 viewport
-  colorSnow: 'multiColor', // value = #fff,... rgba,... special( colorSnow: 'multiColor' )
-  duration: 10000, // set duration
-  size: 5, // approximately size
-  // backgroundImage: 'http://www.flyingstart.uk.com/wp-content/uploads/2014/12/Merry-Christmas-pictures-free.jpg' // background image
+  
+  amountSnow: 50,
+  // approximately 80 snow / 1 viewport
+  colorSnow: "multiColor",
+  // value = #fff,... rgba,... special( colorSnow: 'multiColor' )
+  duration: 10000,
+  // set duration
+  size: 5,
+  // approximately size
 );
 
 // get key
-$amountSnow: map-get($snow, 'amountSnow');
-$colorSnow: map-get($snow, 'colorSnow');
-$duration: map-get($snow, 'duration');
-$size: map-get($snow, 'size');
-$backgroundImage: map-get($snow, 'backgroundImage');
+$amountSnow: map-get($snow, "amountSnow");
+$colorSnow: map-get($snow, "colorSnow");
+$duration: map-get($snow, "duration");
+$size: map-get($snow, "size");
 // function snow
 @function snow($x, $y, $n, $color) {
   $value: 0 0 0 transparent;
   @for $i from 1 through round($n/2) {
-    $value: $value, random($x)*1vw ($y*1 + random(100))*1vh random(8)*1px random(5)*1px if($color == 'multiColor', rgb(random(255),random(255),random(255)), unquote($color)), random($x)*-1vw ($y*1 + random(100))*1vh random(8)*1px random(5)*1px if($color == 'multiColor', rgb(random(255),random(255),random(255)), unquote($color));
+    $value: $value,
+      random($x) *
+        1vw
+        ($y * 1 + random(100)) *
+        1vh
+        random(8) *
+        1px
+        random(5) *
+        1px
+        if(
+          $color == "multiColor",
+          rgb(random(255), random(255), random(255)),
+          unquote($color)
+        ),
+      random($x) *
+        -1vw
+        ($y * 1 + random(100)) *
+        1vh
+        random(8) *
+        1px
+        random(5) *
+        1px
+        if(
+          $color == "multiColor",
+          rgb(random(255), random(255), random(255)),
+          unquote($color)
+        );
   }
   @return $value;
 }
@@ -69,14 +228,15 @@ $backgroundImage: map-get($snow, 'backgroundImage');
   left: 0;
   border-radius: 50%;
   will-change: box-shadow;
-  animation: snow $duration*1ms linear infinite;
+  
+  animation: snow $duration * 1ms linear infinite;
   &:nth-child(2) {
     left: 25vw;
-    animation-delay: floor($duration/1.5)*1ms;
+    animation-delay: floor($duration/1.5) * 1ms;
   }
   &:nth-child(3) {
     right: 25vw;
-    animation-delay: floor($duration/3)*1ms;
+    animation-delay: floor($duration/3) * 1ms;
   }
   @keyframes snow {
     0% {
@@ -88,19 +248,6 @@ $backgroundImage: map-get($snow, 'backgroundImage');
   }
 }
 
-// Style
-body {
-  margin: 0;
-  background-image: url($backgroundImage);
-  background-color: #111;
-  background-position: 50% 50%;
-  background-size: cover;
-}
-.snow {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-}
 .snow__item {
   @include snow($size) {
     position: absolute;

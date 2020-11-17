@@ -6,13 +6,9 @@ function App() {
   return (
     <Router>
     <div className="App">
+      
         <Home/>
-        <Switch>
-          <Route path="/:page" component={PageRenderer}/>
-          <Route path="/" render={() => <Redirect to="/home"/>} />
-          <Route component={()=> 404} />
-         
-        </Switch>
+      
       </div>
     </Router>
   
